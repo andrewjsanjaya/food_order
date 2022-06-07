@@ -1,20 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const Controller = require("../controllers/ItemController");
+const Controller = require("../controllers/reportController");
 const authentication = require("../middlewares/authentication");
 
 router.use(authentication);
 
-router.get("/", Controller.fetchItems);
+router.get("/", Controller.fetchAllReport);
 
-router.post("/", Controller.createItem);
-
-router.get("/ready", Controller.fetchReadyItems);
-
-router.get("/:id", Controller.fetchItem);
-
-router.put("/:id", Controller.updateItem);
-
-router.delete("/:id", Controller.deleteItem);
+router.post("/user", Controller.fetchReport);
 
 module.exports = router;

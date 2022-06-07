@@ -1,9 +1,11 @@
-const { Item } = require("../models");
+const { Item, Company } = require("../models");
 
 class Controller {
   static async fetchItems(req, res, next) {
     try {
-      const items = await Item.findAll();
+      const items = await Item.findAll({
+        include: Company,
+      });
 
       res.status(200).json({
         items,
