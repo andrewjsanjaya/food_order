@@ -2,7 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { fetchTransactions } from "../stores/actions/transactionAction";
+import {
+  fetchTransactions,
+  deleteTransaction,
+} from "../stores/actions/transactionAction";
 
 export default function TransactionTable() {
   const navigate = useNavigate();
@@ -16,7 +19,9 @@ export default function TransactionTable() {
 
   function addHandler(id) {}
 
-  function deleteHandler(id) {}
+  function deleteHandler(id) {
+    dispatch(deleteTransaction(id));
+  }
 
   function updateHandler(id) {}
 
@@ -60,7 +65,7 @@ export default function TransactionTable() {
               </button>
               <button
                 className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-                onClick={() => deleteHandler(item.id)}
+                onClick={() => deleteHandler(transaction.id)}
               >
                 Delete
               </button>

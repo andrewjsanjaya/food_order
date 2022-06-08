@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { fetchItems } from "../stores/actions/itemAction";
+import { fetchItems, deleteItem } from "../stores/actions/itemAction";
 
 export default function ItemTable() {
   const navigate = useNavigate();
@@ -16,7 +16,9 @@ export default function ItemTable() {
 
   function addHandler(id) {}
 
-  function deleteHandler(id) {}
+  function deleteHandler(id) {
+    dispatch(deleteItem(id));
+  }
 
   function updateHandler(id) {}
 

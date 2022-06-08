@@ -121,23 +121,9 @@ export const updateCompany = (id, data) => {
 
 export const deleteCompany = (id) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/companies/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        return res.json();
-      })
+    axios
+      .delete(`http://localhost:3001/companies/${id}`)
       .then((data) => {
-        if (data.statusCode !== 200) {
-          throw data.error.message;
-        }
-        Swal.fire({
-          icon: "success",
-          title: "Company Deleted",
-        });
         dispatch(fetchCompanies());
       })
       .catch((err) => {

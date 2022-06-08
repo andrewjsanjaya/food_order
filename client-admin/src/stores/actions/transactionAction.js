@@ -52,7 +52,7 @@ export const detailTransaction = (id) => {
   };
 };
 
-export const createCompany = (data) => {
+export const createTransaction = (data) => {
   return (dispatch) => {
     fetch("http://localhost:3001/company", {
       method: "POST",
@@ -84,7 +84,7 @@ export const createCompany = (data) => {
   };
 };
 
-export const updateCompany = (id, data) => {
+export const updateTransaction = (id, data) => {
   return (dispatch) => {
     fetch(`http://localhost:3001/companies/${id}`, {
       method: "PUT",
@@ -116,26 +116,14 @@ export const updateCompany = (id, data) => {
   };
 };
 
-export const deleteCompany = (id) => {
+export const deleteTransaction = (id) => {
   return (dispatch) => {
-    fetch(`http://localhost:3000/companies/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        return res.json();
+    axios
+      .delete(`http://localhost:3001/transactions/${id}`, {
+        headers: { access_token: localStorage.access_token },
       })
       .then((data) => {
-        if (data.statusCode !== 200) {
-          throw data.error.message;
-        }
-        Swal.fire({
-          icon: "success",
-          title: "Company Deleted",
-        });
-        dispatch(fetchCompanies());
+        dispatch(fetchTransactions());
       })
       .catch((err) => {
         Swal.fire({

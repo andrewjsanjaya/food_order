@@ -16,7 +16,9 @@ export default function CompanyTable() {
 
   function addHandler(id) {}
 
-  function deleteHandler(id) {}
+  function deleteHandler(id) {
+    dispatch(deleteCompany(id));
+  }
 
   function updateHandler(id) {}
 

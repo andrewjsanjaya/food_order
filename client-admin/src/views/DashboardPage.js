@@ -13,7 +13,7 @@ export default function DashboardPage() {
         </h1>
         <div className="items-center mt-20">
           <div className="flex justify-start mb-2">
-            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
               Add Transaction
             </button>
           </div>
