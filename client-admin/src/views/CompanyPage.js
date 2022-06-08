@@ -1,12 +1,22 @@
 import CompanyTable from "../components/CompanyTable";
-// import NavigationBar from "../components/NavigationBar";
+import SideBar from "../components/SideBar";
 
 export default function CompanyPage() {
   return (
-    <div className="mb-10">
-      {/* <NavigationBar /> */}
-      <div className="container flex overflow-x-auto shadow-md justify-center mx-auto">
-        <CompanyTable />
+    <div className="flex">
+      <div>
+        <SideBar />
+      </div>
+      <div className="container px-10 overflow-x-auto shadow-md justify-center flex-col">
+        <h1 className="mt-10 uppercase font-bold text-3xl">Company Table</h1>
+        <div className="items-center mt-20">
+          <div className="flex justify-start mb-2">
+            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+              Add Company
+            </button>
+          </div>
+          <CompanyTable />
+        </div>
       </div>
     </div>
   );
